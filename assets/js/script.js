@@ -65,12 +65,12 @@ select.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
+    const item = selectItems[i].dataset.filterBtn;
   selectItems[i].addEventListener("click", function () {
 
-    let selectedValue = this.innerText.toLowerCase();
     selectValue.innerText = this.innerText;
     elementToggleFunc(select);
-    filterFunc(selectedValue);
+    filterFunc(item);
 
   });
 }
@@ -142,10 +142,11 @@ const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
+  const link = navigationLinks[i].dataset.navLink;
   navigationLinks[i].addEventListener("click", function () {
 
     for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+      if (link === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
