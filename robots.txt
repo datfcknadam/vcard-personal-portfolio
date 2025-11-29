@@ -1,0 +1,12 @@
+# robots.txt for https://elizavetart.ru
+
+# Разрешаем всем поисковым системам индексировать сайт
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Disallow: /private/
+Allow: /
+
+# Указываем путь к карте сайта
+Sitemap: https://elizavetart.ru/sitemap.xml

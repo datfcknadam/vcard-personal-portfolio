@@ -1,0 +1,12 @@
+# Перенаправление с www на без www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.elizavetart\.ru [NC]
+RewriteRule ^(.*)$ https://elizavetart.ru/$1 [L,R=301]
+
+# Перенаправление с HTTP на HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://elizavetart.ru/$1 [L,R=301]
+
+# Убираем слеш с конца URL (опционально)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
